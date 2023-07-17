@@ -1,17 +1,20 @@
-const router = require("express").Router();
+import express from "express";
+const router = express.Router();
 
-const {
+import {
   homeRoutes,
   getAddProperty,
   getAddSignUp,
   getPropertySearch,
   getPropertyDetails,
-} = require("../controller/page.js");
+  dashboard,
+} from "../controller/page.js";
 
 router.get("/", homeRoutes);
 router.get("/add-property", getAddProperty);
 router.get("/agent-sign-up", getAddSignUp);
 router.post("/search-data", getPropertySearch);
 router.get("/property/:id", getPropertyDetails);
+router.get("/dashboard/", dashboard);
 
-module.exports = router;
+export default router;

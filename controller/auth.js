@@ -1,7 +1,7 @@
-const path = require("path");
-const fs = require("fs");
-
-const db = require("../database/db");
+import db from "../database/db.js";
+import fs from "fs";
+import path from "path";
+const __dirname = path.resolve();
 
 /*let agentJsonData = path.join(__dirname, "..", "data", "agent.json");
 let propertyJsonData = path.join(__dirname, "..", "data", "properties.json");
@@ -46,7 +46,7 @@ const postProperties = (req, res) => {
 module.exports = { postAgent, postProperties };
 */
 
-const addProperty = (req, res) => {
+export const addProperty = (req, res) => {
   const { title, location, address, price, discount, type, desc, image } =
     req.body;
   db.execute(
@@ -56,7 +56,7 @@ const addProperty = (req, res) => {
     res.redirect("/");
   });
 };
-const addAgent = (req, res) => {
+export const addAgent = (req, res) => {
   const {
     Fname,
     Lname,
@@ -76,4 +76,9 @@ const addAgent = (req, res) => {
   });
 };
 
-module.exports = { addProperty, addAgent };
+export const deleteProperty = (res, req) => {
+  const id = req.body.id;
+  db.execute("DELETE FROM propery WHERE id=?", [id]).then((res) => {
+    res.redirect("/dashboard");
+  });
+};

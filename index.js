@@ -1,9 +1,10 @@
-const express = require("express");
-const path = require("path");
-const bodyParser = require("body-parser");
+import express from "express";
+import fs from "fs";
+import path from "path";
+import bodyParser from "body-parser";
 const port = 3002;
 const app = express();
-
+const __dirname = path.resolve();
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const day = new Date();
 const currentDay = day.getDate();
 
-const pageRoutes = require("./routes/page.js");
-const authRoutes = require("./routes/auth.js");
+import pageRoutes from "./routes/page.js";
+import authRoutes from "./routes/auth.js";
 
 app.use(pageRoutes);
 app.use(authRoutes);

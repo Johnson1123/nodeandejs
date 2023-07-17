@@ -1,6 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const db = require("../database/db");
+import db from "../database/db.js";
+import fs from "fs";
+import path from "path";
+const __dirname = path.resolve();
 
 let agentJsonData = path.join(__dirname, "..", "data", "agent.json");
 let propertyJsonData = path.join(__dirname, "..", "data", "properties.json");
@@ -23,7 +24,7 @@ fs.readFile(propertyJsonData, (err, data) => {
   }
 });
 let property;
-const homeRoutes = (req, res) => {
+export const homeRoutes = (req, res) => {
   db.execute("SELECT * FROM propery").then((property) => {
     db.execute("SELECT * FROM agent").then((agent) => {
       res.render("realEstate/index", {
@@ -36,7 +37,7 @@ const homeRoutes = (req, res) => {
   // console.log(property);
 };
 
-const getPropertySearch = (req, res) => {
+export const getPropertySearch = (req, res) => {
   const searchTerm = req.body.search;
 
   db.execute("SELECT * FROM propery").then((prop) => {
@@ -47,25 +48,26 @@ const getPropertySearch = (req, res) => {
   });
 };
 
-const getAddProperty = (req, res) => {
+export const getAddProperty = (req, res) => {
   res.render("realEstate/addProperty");
 };
 
-const getAddSignUp = (req, res) => {
+export const getAddSignUp = (req, res) => {
   res.render("realEstate/agentSignUp");
 };
-
-const getPropertyDetails = (req, res) => {
+export const dashboard = (req, res) => {
+  db.execute("SELECT * FROM propery").then((property) => {
+    db.execute("SELECT * FROM agent").then((agent) => {
+      res.render("realEstate/dashboard", {
+        agent: agent[0],
+        properties: property[0],
+      });
+    });
+  });
+};
+export const getPropertyDetails = (req, res) => {
   const id = req.params.id;
   db.execute("SELECT * FROM propery WHERE id=?", [id]).then((data) => {
     res.render("realEstate/propertyDetail", { data: data[0] });
   });
-};
-
-module.exports = {
-  homeRoutes,
-  getAddProperty,
-  getAddSignUp,
-  getPropertySearch,
-  getPropertyDetails,
 };

@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BetterHome</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/style/dashbord.css" />
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="relative">
+      <p class="dashbord-title">List of Properties</p>
+      <div class="dashbord-box-con">
+        <% for(var i = 0; i < properties.length; i++) { %>
+        <div class="dashbord-box">
+          <div class="w-[50px] h-[50px] dashbord-image">
+            <img
+              src="<%= properties[i].image %>"
+              alt=""
+              class="w-[100%] h-[100%] rounded-md"
+            />
+          </div>
+          <div class="price-con">
+            <p class="discount-price">#<%= properties[i].discount_price %> -</p>
+            <p class="">#<%=properties[i].price %></p>
+          </div>
+          <h2 class="property-title"><%= properties[i].title %></h2>
+          <p class="dashbord-desc">
+            <%= properties[i].description.slice(0, 100) %>
+          </p>
+          <div class="edit">
+            <form action="/edit-property">
+              <input
+                type="hidden"
+                id="id"
+                value="<%= properties[i].id %>"
+                name="id"
+              />
+              <input type="submit" value="Delete" />
+            </form>
+          </div>
+          <div class="delete">
+            <form action="/delete-property">
+              <input
+                type="hidden"
+                id="id"
+                value="<%= properties[i].id %>"
+                name="id"
+              />
+              <input type="submit" value="Delete" />
+            </form>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="dashbord-agent">
+        <div class="agent-box-container">
+          <% for(var i = 0; i < agent.length; i++) { %>
+          <div class="dashbord-agent-box">
+            <div class="image-con">
+              <img src="<%= agent[i].image %>" alt="" />
+            </div>
+
+            <div class="name-con">
+              <p class="name"><%= agent[i].Fname %> <%= agent[i].Lname %></p>
+              <p class="role"><%= agent[i].experience %></p>
+            </div>
+
+            <div class="icons-container">
+              <span>
+                <a href="">
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+              </span>
+              <span>
+                <a href="">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+              </span>
+              <span>
+                <a href="">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+              </span>
+              <span>
+                <a href="">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+              </span>
+            </div>
+            <p class="dashbord-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+              officiis inventore cumque tenetur laboriosam, minus culpa
+              doloremque odio, neque molestias?
+            </p>
+            <div class="edit">
+              <form action="/edit-agent">
+                <input
+                  type="hidden"
+                  id="id"
+                  value="<%= agent[i].id %>"
+                  name="id"
+                />
+                <input type="submit" value="Delete" />
+              </form>
+            </div>
+            <div class="delete">
+              <form action="/delete-agent">
+                <input
+                  type="hidden"
+                  id="id"
+                  value="<%= agent[i].id %>"
+                  name="id"
+                />
+                <input type="submit" value="Delete" />
+              </form>
+            </div>
+          </div>
+          <% }; %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
