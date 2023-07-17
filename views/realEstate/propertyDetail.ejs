@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BHome Property</title>
+    <link
+      rel="stylesheet"
+      href="propertyDetail.ejs
+    "
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
+      integrity="sha512-yDUXOUWwbHH4ggxueDnC5vJv4tmfySpVdIcN1LksGZi8W8EVZv4uKGrQc0pVf66zS7LDhFJM7Zdeow1sw1/8Jw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/style/details.css" />
+  </head>
+  <body>
+    <div class="details-container">
+      <div class="inner-container">
+        <div class="left-con">
+          <div class="">
+            <div class="top-image">
+              <img src="<%=data[0]?.image%>" alt="" />
+            </div>
+            <div class="con-box-images"></div>
+          </div>
+        </div>
+        <div class="right-con">
+          <h3 class="text-red-500 detail-title"><%= data[0]?.title %></h3>
+          <p class="D-desc">
+            WAIT!!! Stop the car! Did you say this is a 2 bedroom single family
+            home with no HOA... for the price of a condo? It''s True! Not only
+            is it over 1000 sqft , it boasts off street parking plus a nice
+            backyard with alley access offering space
+          </p>
+          <div class="price-con">
+            <p class="discount-price">#<%= data[0]?.discount_price %></p>
+            <p class="price">#<%= data[0]?.price %></p>
+          </div>
+          <div class="agent-con">
+            <div class="img-contact">
+              <img src="<%= data[0]?.image %>" alt="" />
+              <button class="button-agent">Contact Agent</button>
+            </div>
+            <button class="btn-payment">Payment</button>
+          </div>
+
+          <button class="button-req">
+            <span>Request for a tour</span><br />
+            <span>At your convinence</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

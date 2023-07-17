@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BetterHome</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style/index.css" />
+  </head>
+  <body>
+    <header class="">
+      <div class="header-container relative w-[100%] min-h-screen">
+        <div class="carousel-container">
+          <img
+            src="/images/background-1.jpg"
+            alt=""
+            class="carousel-box box-1"
+          />
+          <img
+            src="/images/background-1.jpg"
+            alt=""
+            class="carousel-box box-1"
+          />
+          <img
+            src="/images/background-1.jpg"
+            alt=""
+            class="carousel-box box-1"
+            style="display: none"
+          />
+        </div>
+      </div>
+    </header>
+    <!-- <script>
+      let slideIndex = 0;
+      headerCarousel();
+
+      function headerCarousel() {
+        let i;
+        const x = document.getElementsByClassName("carousel-box");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+
+        if (slideIndex > x.length) {
+          slideIndex = 1;
+        }
+        x[slideIndex - 1].style.display = "block";
+
+        setTimeout(headerCarousel, 2000);
+      }
+    </script> -->
+    <script>
+      var myIndex = 0;
+      carousel();
+
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("carousel-box");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+          myIndex = 1;
+        }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+    </script>
+  </body>
+</html>

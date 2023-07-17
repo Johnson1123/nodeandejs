@@ -1,0 +1,388 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BetterHome</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/style/index.css" />
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="">
+      <div class="">
+        <div class="carousel-container">
+          <img
+            src="/images/background-1.jpg"
+            alt=""
+            class="carousel-box box-1 h-[100%] w-[100%]"
+          />
+          <img
+            src="/images/background-2.jpg"
+            alt=""
+            class="carousel-box box-1 h-[100%] w-[100%]"
+          />
+          <img
+            src="/images/background-3.jpg"
+            alt=""
+            class="carousel-box box-1 h-[100%] w-[100%]"
+          />
+        </div>
+        <div class="header-content">
+          <div
+            class="nav py-4 w-[80%] md:py-5 px-5 bg-white rounded-md shadow-md mt-5 flex justify-between items-center cursor-pointer text-red-600"
+          >
+            <a href="/" class="text-seal-500 text-lg font-bold">BHome</a>
+            <i class="fa-solid fa-bars text-[30px]"></i>
+          </div>
+          <div class="">
+            <p class="header-title text-center">FIND A PERFECT DREAM HOUSE</p>
+          </div>
+          <form action="/search-data" class="search-container" method="post">
+            <div class="search-input">
+              <input type="text" id="search" name="search" />
+            </div>
+            <input
+              class="search-btn text-white text-center"
+              type="submit"
+              value="Search"
+            />
+          </form>
+          <p class="header-text text-[18px] text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            enim pariatur similique debitis vel nisi qui reprehenderit totam?
+            Quod maiores.
+          </p>
+
+          <span class="flex items-center mt-15 header-link-container"
+            ><a href="" class="header-link lead-0">veiw homes</a
+            ><i class="fa-solid fa-arrow-right text-white"></i
+          ></span>
+        </div>
+      </div>
+    </header>
+    <main class="relative">
+      <div class="overlay-container top-[-30px] w-[50%]">
+        <div class="overlay-wrapper flex justify-around items-center">
+          <div class="box">
+            <img src="/images/home-image-5.jpg" alt="" />
+            <div class="box-text">New Properties</div>
+          </div>
+          <div class="box">
+            <img src="/images/home-image-2.jpg" alt="" />
+            <div class="box-text">Contact Agent</div>
+          </div>
+          <div class="box">
+            <img src="/images/home-image-4.jpg" alt="" />
+            <div class="box-text">Building for Sale</div>
+          </div>
+          <div class="box">
+            <img src="/images/home-image-6.jpg" alt="" />
+            <div class="box-text">House for Sale</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-property">
+        <% for(var i = 0; i < properties.length; i++) { %>
+        <div class="property-box grid-span-1 cursor-pointer">
+          <div class="relative top-0 left-0">
+            <img
+              src="<%= properties[i].image %>"
+              alt=""
+              class="absolute top-0 left-0 z-2"
+            />
+            <div class="image-overlay">
+              <div class="corner-box"></div>
+              <a
+                href="http://localhost:3002/property/<%=properties[i].id%>"
+                class="view-link"
+                >View Property</a
+              >
+              <p
+                class="absolute left-10 bottom-0 text-white font-[900] bg-green-700 p-2 !text-[30px] discount-price"
+              >
+                <%= properties[i].discount_price %>
+              </p>
+              <p
+                class="absolute right-0 bottom-0 text-white font-[900] bg-green-700 p-2 !text-[30px] discount-price"
+              >
+                <%= properties[i].price %>
+              </p>
+            </div>
+          </div>
+          <h2 class="w-[100px] truncate property-title">
+            <%= properties[i].title %>
+          </h2>
+          <p><%= properties[i].description.slice(0, 150) %></p>
+        </div>
+        <% } %>
+      </div>
+      <a href="/add-property" class="property-btn">Add </a>
+
+      <div class="team">
+        <h2 class="team-title">WE BRING DREAM HOMES TO REALITY</h2>
+        <p class="team-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam enim
+          pariatur similique debitis vel nisi qui reprehenderit totam? Quod
+          maiores.
+        </p>
+
+        <div class="team-image-container-value">
+          <div class="team-image-container">
+            <img src="/images/background-3.jpg" alt="" />
+          </div>
+          <div class="team-value-container">
+            <div class="team-box">
+              <div class="team-image-box">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </div>
+              <div class="team-box-text">
+                <h2 class="">TOP RATED AGENTS</h2>
+                <p class="">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Nostrum iste.
+                </p>
+              </div>
+            </div>
+            <div class="team-box">
+              <div class="team-image-box">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </div>
+              <div class="team-box-text">
+                <h2 class="">QUALITY PROPERTIES</h2>
+                <p class="">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Nostrum iste.
+                </p>
+              </div>
+            </div>
+            <div class="team-box">
+              <div class="team-image-box">
+                <i class="fa fa-shield" aria-hidden="true"></i>
+              </div>
+              <div class="team-box-text">
+                <h2 class="">EASY & SAFE</h2>
+                <p class="">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Nostrum iste.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="counter-container">
+          <div class="counter-box">
+            <span>2,917</span>
+            <p class=""># of Buy Properties</p>
+          </div>
+          <div class="counter-box">
+            <span>5,917</span>
+            <p class=""># of Sell Properties</p>
+          </div>
+          <div class="counter-box">
+            <span>8,817</span>
+            <p class=""># of All Properties</p>
+          </div>
+          <div class="counter-box">
+            <span>817</span>
+            <p class=""># of agents</p>
+          </div>
+        </div>
+      </div>
+      <div class="agent">
+        <div class="agent-wrapper">
+          <h2 class="team-title">WE BRING DREAM HOMES TO REALITY</h2>
+          <p class="team-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            enim pariatur similique debitis vel nisi qui reprehenderit totam?
+            Quod maiores.
+          </p>
+          <div class="agent-box-container">
+            <!-- <div class="agent-box">
+              <img src="/images/agent-2.webp" alt="" />
+              <div class="">
+                <p class="name">Emmiles Jane</p>
+                <p class="role">Real Estate Agent</p>
+              </div>
+              <p class="agent-des">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+                officiis inventore cumque tenetur laboriosam, minus culpa
+                doloremque odio, neque molestias?
+              </p>
+              <div class="icons-container">
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </span>
+              </div>
+            </div> -->
+            <% for(var i = 0; i < agent.length; i++) { %>
+            <div class="agent-box">
+              <img src="<%= agent[i].image %>" alt="" />
+              <div class="">
+                <p class="name"><%= agent[i].Fname %> <%= agent[i].Lname %></p>
+                <p class="role"><%= agent[i].experience %> Real Estate Agent</p>
+              </div>
+              <p class="agent-des">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+                officiis inventore cumque tenetur laboriosam, minus culpa
+                doloremque odio, neque molestias?
+              </p>
+              <div class="icons-container">
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            <% }; %>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+        <h2 class="footer-title">Be a part of our growing real state agents</h2>
+        <a href="/agent-sign-up" class="footer-btn"
+          >Apply for Real Estate Agent</a
+        >
+        <div class="footer-link-container">
+          <div class="footer-link-box">
+            <p class="footer-link-header">Contact Us</p>
+            <p class="footer-link">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Ore-meji Alekuwodo</span>
+            </p>
+            <p class="footer-link">
+              <i class="fa-solid fa-phone"></i>
+              <span>09076524078</span>
+            </p>
+            <p class="footer-link">
+              <i class="fa-solid fa-phone"></i>
+              <span>09035147839</span>
+            </p>
+            <p class="footer-link">
+              <i class="fa-regular fa-envelope"></i>
+              <span class=" ">onifadejohnson2014@gmail.com</span>
+            </p>
+          </div>
+          <div class="footer-link-box">
+            <p class="footer-link-header">Guide</p>
+            <nav>
+              <li class="footer-link"><a href="">Investor Guide</a></li>
+              <li class="footer-link"><a href="">Term of Use</a></li>
+              <li class="footer-link"><a href="">Leadership</a></li>
+              <li class="footer-link"><a href="">Investor Relation</a></li>
+              <li class="footer-link"><a href="">Newest Listings</a></li>
+            </nav>
+          </div>
+          <div class="footer-link-box">
+            <p class="footer-link-header">Contact Us</p>
+            <nav>
+              <li class="footer-link"><a href="">About BTHome.com</a></li>
+              <li class="footer-link"><a href="">Our Mission</a></li>
+              <li class="footer-link"><a href="">Meet Our Agent</a></li>
+              <li class="footer-link"><a href="">Values</a></li>
+            </nav>
+          </div>
+          <div class="footer-link-box">
+            <p class="footer-link-header">LEGAL</p>
+            <nav>
+              <li class="footer-link"><a href="">Terms of Use</a></li>
+              <li class="footer-link"><a href="">Privacy Policy</a></li>
+              <li class="footer-link"><a href="">Accessibility</a></li>
+              <li class="footer-link">
+                <a href="">Nigeria Privacy Notice</a>
+              </li>
+              <li class="footer-link"><a href="">Communication Opt Out</a></li>
+              <li class="footer-link">
+                <a href="">Equal Opportunity Housing</a>
+              </li>
+            </nav>
+          </div>
+        </div>
+        <p class="mt-10">All right revesered &copy; 2023, Amazing design</p>
+      </div>
+    </footer>
+
+    <!-- <script>
+      let slideIndex = 0;
+      headerCarousel();
+
+      function headerCarousel() {
+        let i;
+        const x = document.getElementsByClassName("carousel-box");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+
+        if (slideIndex > x.length) {
+          slideIndex = 1;
+        }
+        x[slideIndex - 1].style.display = "block";
+
+        setTimeout(headerCarousel, 2000);
+      }
+    </script> -->
+    <script>
+      var myIndex = 0;
+      carousel();
+
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("carousel-box");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+          myIndex = 1;
+        }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+    </script>
+  </body>
+</html>

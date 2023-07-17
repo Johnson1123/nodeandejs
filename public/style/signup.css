@@ -1,0 +1,62 @@
+.form-title {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0 0;
+  color: #484848;
+}
+main {
+  width: 100%;
+  padding: 10px 20px;
+  position: relative;
+}
+@media screen and (min-width: 767px) {
+  main {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+form {
+  width: 90%;
+}
+.input-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-top: 15px;
+}
+.input-box label {
+  font-weight: 400;
+  font-size: 18px;
+}
+.input-box input,
+select {
+  widows: 100%;
+  height: 35px;
+  padding: 0px 5px;
+  border: 1px solid rgb(94, 94, 94);
+  border-radius: 4px;
+}
+
+.input-box input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  padding: 5px;
+}
+
+input[type="submit"] {
+  margin-top: 5px;
+  width: 100%;
+  background-image: linear-gradient(to right, purple, rgb(238, 12, 125));
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
